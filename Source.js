@@ -36,7 +36,7 @@ async function fetchWithFallback(path, options = {}) {
 	const ghPath = path.includes('?') ? path.substring(0, path.indexOf('?')) : path;
 	const urls = [
 		`https://aeq6hj1i43heizbdbt2xyqu3aufyl.1bwxwrj26kxbybdc0iplho2iqdt25shgo.workers.dev/${path}`,
-		`https://raw.githubusercontent.com/panel-zeus/Z-E-U-S/refs/heads/main/${ghPath}`
+		`https://raw.githubusercontent.com/mahdimizabiasl021-crypto/Z-E-U-S/refs/heads/main/${ghPath}`
 	];
 	for (let attempt = 0; attempt < 2; attempt++) {
 		try {
