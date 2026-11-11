@@ -3066,15 +3066,15 @@ const SubscriptionService = {
 							echSuffix = ` | ECH-${pType}-${protoCounts[pType]}`;
 						}
 						if (enableVless) {
-							const remark = "ZEUS | " + proxy.flagEmoji + " | " + user.username + echSuffix;
+							const remark = proxy.flagEmoji + " | " + user.username + echSuffix;
 							links.push("vl" + "e" + "ss://" + user.uuid + "@" + safeIp + ":" + portStr + "?path=" + proxy.currentDynPath + "&security=" + tlsVal + "&encryption=none&host=" + host + "&type=ws" + tlsParams + userFrag + "#" + encodeURIComponent(remark));
 						}
 						if (enableTrojan) {
-							const trojanRemark = "ZEUS | " + proxy.flagEmoji + " | " + user.username + echSuffix;
+							const trojanRemark = proxy.flagEmoji + " | " + user.username + echSuffix;
 							links.push("trojan://" + user.uuid + "@" + safeIp + ":" + portStr + "?path=" + proxy.currentDynPath + "&security=" + tlsVal + "&host=" + host + "&type=ws" + tlsParams + userFrag + "#" + encodeURIComponent(trojanRemark));
 						}
 						if (enableSS) {
-							const ssRemark = "ZEUS | " + proxy.flagEmoji + " | " + user.username + echSuffix;
+							const ssRemark = proxy.flagEmoji + " | " + user.username + echSuffix;
 							const methodPass = btoa("aes-256-gcm:" + user.uuid);
 							let pluginOpts = "v2ray-plugin;mode=websocket;host=" + host + ";path=" + decodeURIComponent(proxy.currentDynPath) + (isTlsPort ? ";tls" : "");
 							let pluginStr = encodeURIComponent(pluginOpts);
@@ -3205,7 +3205,7 @@ const SubscriptionService = {
 			ports.forEach((portStr) => {
 				resolvedProxies.forEach((proxy) => {
 					const isTlsPort = TLS_PORTS.has(portStr);
-					let baseName = "ZEUS | " + proxy.flagEmoji + " | " + user.username;
+					let baseName = proxy.flagEmoji + " | " + user.username;
 					if (enableVless) {
 						nameCounter[baseName] = (nameCounter[baseName] || 0) + 1;
 						let uniqueName = baseName + " " + nameCounter[baseName];
@@ -5813,15 +5813,15 @@ links.push('vle' + 'ss://' + (user.uuid || '') + '@0.0.0.0:1?encryption=none&sec
 								echSuffix = " | ECH-" + pType + "-" + protoCounts[pType];
 							}
 							if (enableVless) {
-								const remark = "ZEUS | " + proxy.flagEmoji + " | " + user.username + echSuffix;
+								const remark = proxy.flagEmoji + " | " + user.username + echSuffix;
 								links.push('vle' + 'ss://' + (user.uuid || '') + '@' + safeIp + ':' + portStr + '?path=' + proxy.currentDynPath + '&security=' + tlsVal + '&encryption=none&host=' + host + '&type=ws' + tlsParams + userFrag + '#' + encodeURIComponent(remark));
 							}
 							if (enableTrojan) {
-								const trojanRemark = "ZEUS | " + proxy.flagEmoji + " | " + user.username + echSuffix;
+								const trojanRemark = proxy.flagEmoji + " | " + user.username + echSuffix;
 								links.push('trojan://' + (user.uuid || '') + '@' + safeIp + ':' + portStr + '?path=' + proxy.currentDynPath + '&security=' + tlsVal + '&host=' + host + '&type=ws' + tlsParams + userFrag + '#' + encodeURIComponent(trojanRemark));
 							}
 							if (enableSS) {
-								const ssRemark = "ZEUS | " + proxy.flagEmoji + " | " + user.username + echSuffix;
+								const ssRemark = proxy.flagEmoji + " | " + user.username + echSuffix;
 								const methodPass = btoa("aes-256-gcm:" + (user.uuid || ''));
 								let pluginOpts = "v2ray-plugin;mode=websocket;host=" + host + ";path=" + decodeURIComponent(proxy.currentDynPath) + (isTlsPort ? ";tls" : "");
 								let pluginStr = encodeURIComponent(pluginOpts);
