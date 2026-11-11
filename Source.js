@@ -2930,7 +2930,7 @@ const SubscriptionService = {
 		if (user.limit_gb) {
 			let liveUsedGb = (user.used_gb || 0) + ((GLOBAL_TRAFFIC_CACHE.get(user.username) || 0) / (1024 * 1024 * 1024));
 			let rem = user.limit_gb - liveUsedGb;
-			remVol = rem > 0 ? rem.toFixed(2) + "GB" : "0GB";
+			remVol = rem > 0 ? rem.toFixed(2) + " \u06af\u06cc\u06af" : "0 \u06af\u06cc\u06af";
 		}
 		let remTime = "\u221e";
 		if (user.expiry_days) {
@@ -2938,22 +2938,22 @@ const SubscriptionService = {
 				if (user.first_connection_time) {
 					const expiryDate = new Date(user.first_connection_time + user.expiry_days * 86400000);
 					const diffDays = Math.ceil((expiryDate.getTime() - Date.now()) / 86400000);
-					remTime = diffDays > 0 ? diffDays + "Days" : "0Days";
-				} else { remTime = user.expiry_days + "Days (Not Started)"; }
+					remTime = diffDays > 0 ? diffDays + " \u0631\u0648\u0632" : "0 \u0631\u0648\u0632";
+				} else { remTime = user.expiry_days + " \u0631\u0648\u0632 (\u0634\u0631\u0648\u0639 \u0646\u0634\u062f\u0647)"; }
 			} else if (user.created_at) {
 				const created = new Date(user.created_at);
 				const expiryDate = new Date(created.getTime() + user.expiry_days * 86400000);
 				const diffDays = Math.ceil((expiryDate.getTime() - Date.now()) / 86400000);
-				remTime = diffDays > 0 ? diffDays + "Days" : "0Days";
+				remTime = diffDays > 0 ? diffDays + " \u0631\u0648\u0632" : "0 \u0631\u0648\u0632";
 			}
 		}
 		let remReq = "\u221e";
 		if (user.limit_req) {
 			let liveUsedReq = (user.used_req || 0) + (USER_REQ_CACHE.get(user.username) || 0);
 			let rem = user.limit_req - liveUsedReq;
-			remReq = rem > 0 ? rem.toLocaleString() + "Req" : "0Req";
+			remReq = rem > 0 ? rem.toLocaleString() + " \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u0631\u0648\u0632\u0627\u0646\u0647" : "0 \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u0631\u0648\u0632\u0627\u0646\u0647";
 		}
-		const infoRemark = "\ud83d\udcca remaining | \u200E" + remVol + " | \u200E" + remTime + " | \u200E" + remReq;
+		const infoRemark = "\ud83d\udcca \u200E" + remVol + " | \u200E" + remTime + " | \u200E" + remReq;
 		links.push("vl" + "e" + "ss://" + user.uuid + "@0.0.0.0:1?encryption=none&security=none&type=ws&host=" + host + "&path=" + dynPath + "#" + encodeURIComponent(infoRemark));
 		const rawPath = "/stream/PANEL_ZEUS/" + ((user.uuid || "").split("-")[4] || "default");
 		let proxyList = [];
@@ -5724,25 +5724,25 @@ const COMMON_SHARED_FUNCS_JS = `
 			const links = [];
 		const m2 = decodeURIComponent('%F0%9F%93%A2%20%DA%A9%D8%A7%D9%86%D8%A7%D9%84%20%D8%AA%D9%84%DA%AF%D8%B1%D8%A7%D9%85%20%40VPNTar');
 			let remVol = "\u221e";
-			if (user.limit_gb) { let rem = user.limit_gb - (user.used_gb || 0); remVol = rem > 0 ? rem.toFixed(2) + "GB" : "0GB"; }
+			if (user.limit_gb) { let rem = user.limit_gb - (user.used_gb || 0); remVol = rem > 0 ? rem.toFixed(2) + " \u06af\u06cc\u06af" : "0 \u06af\u06cc\u06af"; }
 			let remTime = "\u221e";
 			if (user.expiry_days) {
 				if (user.start_on_first_connect === 1) {
 					if (user.first_connection_time) {
 						const expiryDate = new Date(user.first_connection_time + user.expiry_days * 86400000);
 						const diffDays = Math.ceil((expiryDate.getTime() - Date.now()) / 86400000);
-						remTime = diffDays > 0 ? diffDays + "Days" : "0Days";
-					} else { remTime = user.expiry_days + "Days (Not Started)"; }
+						remTime = diffDays > 0 ? diffDays + " \u0631\u0648\u0632" : "0 \u0631\u0648\u0632";
+					} else { remTime = user.expiry_days + " \u0631\u0648\u0632 (\u0634\u0631\u0648\u0639 \u0646\u0634\u062f\u0647)"; }
 				} else if (user.created_at) {
 					const created = new Date(user.created_at);
 					const expiryDate = new Date(created.getTime() + user.expiry_days * 86400000);
 					const diffDays = Math.ceil((expiryDate.getTime() - Date.now()) / 86400000);
-					remTime = diffDays > 0 ? diffDays + "Days" : "0Days";
+					remTime = diffDays > 0 ? diffDays + " \u0631\u0648\u0632" : "0 \u0631\u0648\u0632";
 				}
 			}
 			let remReq = "\u221e";
-			if (user.limit_req) { let remR = user.limit_req - (user.used_req || 0); remReq = remR > 0 ? remR.toLocaleString() + "Req" : "0Req"; }
-			const infoRemark = "\ud83d\udcca remaining | \u200E" + remVol + " | \u200E" + remTime + " | \u200E" + remReq;
+			if (user.limit_req) { let remR = user.limit_req - (user.used_req || 0); remReq = remR > 0 ? remR.toLocaleString() + " \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u0631\u0648\u0632\u0627\u0646\u0647" : "0 \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u0631\u0648\u0632\u0627\u0646\u0647"; }
+			const infoRemark = "\ud83d\udcca \u200E" + remVol + " | \u200E" + remTime + " | \u200E" + remReq;
 links.push('vle' + 'ss://' + (user.uuid || '') + '@0.0.0.0:1?encryption=none&security=none&type=ws&host=' + host + '&path=' + dynPath + '#' + encodeURIComponent(infoRemark));
 			const rawPath = "/stream/PANEL_ZEUS/" + (user.uuid ? user.uuid.split("-")[4] : "default");
 			let proxyList = [];
